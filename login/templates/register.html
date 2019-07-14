@@ -1,0 +1,13 @@
+{% if condition %}
+<form action="{% url 'verify' %}" method='post'>
+{% csrf_token %}
+    <div>
+        <label for="phoneNumber">Phone Number</label>
+        <br><span>+98</span>
+        <input type="text" id="phoneNumber" name="username">
+    </div>
+    <button type="submit">next</button>
+</form>
+{% else %}
+You're banned till {{time}} minutes
+{% endif %}

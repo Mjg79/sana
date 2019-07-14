@@ -1,0 +1,31 @@
+<form action="{% url 'signup' user %}" method='post'>
+
+    {% csrf_token %}
+    {{ form.first_name.errors }}
+    <div>
+        <label for="username">Your username will be : </label>
+        <input type='text' name='username' value={{user}} readonly required>
+    </div>
+    <div>
+        <label for="first">First Name</label>
+        <input type="text" id="first" name="first_name" required>
+    </div>
+    <div>
+        <label for="last">Last Name</label>
+        <input type="text" id="last" name="last_name" required>
+    </div>
+    <div>
+        <label for="pwd1">password</label>
+        <input type="password" id="pwd1" name="password1" required>
+    </div>
+    <div>
+        <label for="pwd2">confirm password</label>
+        <input type="password" id="pwd2" name="password2" required>
+        <label> ( {{form.password2.help_text}} )</label>
+    </div>
+    <button type="submit">next</button>
+    <p>errors :</p>
+    {% for field in form %}
+        <p>{{ field.errors }}</p>    
+    {% endfor %}
+</form>

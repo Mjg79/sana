@@ -1,0 +1,18 @@
+{% if condition %}
+    <form action="{% url 'login'%}" method='post'>
+        {% csrf_token %}
+        <div>
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" id="phoneNumber" name="username">
+        </div>
+        <div>{{ form.errors.username }}</div>
+        <div>
+            <label for="pwd">password</label>
+            <input type="password" id="pwd" name="password">
+        </div>
+        <div>{{ form.errors.password }}</div>
+        <button type="submit">Come in!</button>
+    </form>
+{% else %}
+You're banned till {{time}} minutes
+{% endif %}

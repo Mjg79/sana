@@ -1,0 +1,18 @@
+{% if user.is_authenticated %}
+    <p>You're in.</p>
+    <form action="{% url 'logout' %}" method='post'>
+        {% csrf_token %}
+        <button type="submit">logout</button>
+    </form>
+{% else %}
+    {% if condition %}
+    <form action="{% url 'login' %}">
+        <button type="submit">Login</button>
+    </form>
+    <form action="{% url 'register' %}">
+        <button type="submit">Register</button>
+    </form>
+    {% else %}
+        You're banned till {{ time }} minutes
+    {% endif %}
+{% endif %}

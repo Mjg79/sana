@@ -1,0 +1,11 @@
+<form action="{% url 'signup' p %}" method='post'>
+{% csrf_token %}
+    <div>
+        <label for="verifyNumber">Verification Number</label>
+        <input type="text" id="verifyNumber" name="verify">
+    </div>
+    <button type="submit">next</button>
+</form>
+<form action="{% url 'register' %}">
+    <button type='submit'>Change phone number</button>
+</form>

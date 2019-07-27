@@ -29,7 +29,7 @@ def get_client_ip(request):
         x.save()
     return x
 
-# views
+
 
 def show(request):
     time = 'time'
